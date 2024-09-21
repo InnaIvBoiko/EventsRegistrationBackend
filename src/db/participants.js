@@ -18,6 +18,11 @@ const participantsSchema = new Schema(
       type: String,
       required: false,
     },
+    hear_about: {
+      type: String,
+      required: true,
+      enum: ['social_media', 'friends', 'found_myself'],
+    }
   },
   {
     timestamps: true,

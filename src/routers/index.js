@@ -1,10 +1,13 @@
 import { Router } from 'express';
-import eventsRouter from './events.js';
-import participantsRouter from './participants.js';
+import { getAllEventsController, getEventByIdController } from '../controllers/events.js';
+import { createParticipantController, getParticipantsController } from '../controllers/participants.js';
 
 const router = Router();
 
-router.use('/events', eventsRouter);
-router.use('/participants', participantsRouter);
+router.get('/', getAllEventsController);
+router.get('/:event_id', getEventByIdController);
+router.post('/:event_id/', createParticipantController);
+router.get('/:event_id/participants', getParticipantsController);
+
 
 export default router;
